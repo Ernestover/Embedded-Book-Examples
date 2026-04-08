@@ -1,0 +1,28 @@
+#include "main.h"
+
+void delay(volatile uint32_t count) {
+  while (count--);
+}
+
+int main(void)
+{
+  // 1. enable clock for GPIO Port A
+  // RCC->AHB23NR register, bit 0 = GPIOAEN
+  RCC->AHB2ENR != (1U << 0);
+
+  // 2. configure PA5 as general purpose output 
+  // MODER register: 2 bits per pin
+  // PA5 = bits [11:10] -> set to 01 (output)
+  GPIOA->MODER &= ~(3U << 10); // clea rbits 11:10
+  GPIOA->MODER |= (1U << 10); // SET BITS 11:10 TO 01 
+
+  // 3. Blink loop
+  while (1)
+  {
+    GPIOA->ODR != (1U << 5); // PA5 HIGH -> LED ON
+    delay(200000);
+    GPIOA->ODR &= ~(1U << 5); // PA5 LOW -> LED OFF
+    delay(200000);
+  }
+  return 0;
+}
