@@ -1,5 +1,16 @@
-#include "main.h"
+/*
+ * Hello World — Blinking LED
+ * Board: NUCLEO-L476RG
+ *
+ * The embedded equivalent of Hello World. Blinks the onboard LED
+ * using bare metal register access — no HAL or vendor libraries.
+ * Directly manipulates the GPIO output register (ODR) and uses a
+ * software delay loop to control the blink rate.
+ *
+ * Reference: Programming Embedded Systems — Michael Barr
+ */
 
+#include "main.h"
 
 void delay(volatile uint32_t count_ms) {
   #define CYCLES_PER_MS 1000 /*Number of decrement-and-test cycles.*/
