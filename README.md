@@ -9,4 +9,4 @@ Welcome to my Embedded Book Examples GitHub Repo! In this repo you can expect to
 ## Projects 
 ### Hello World aka blinking an LED 
 
-| Hello World | Blinks the onboard LED using bare metal register access with no HAL library. Directly toggles the NUCLEO-L476RG's GPIO output register with a software delay loop. |
+Hello World blinks the onboard LED using bare metal register access with no HAL library. Directly toggles the NUCLEO-L476RG's GPIO output register with a software delay loop. 
